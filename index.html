@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Page</title>
+ <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+
+
+  
+  <!-- Favicon / Icon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Navbar */
+    .navbar-zomato {
+      background-color: #4f0007 !important;
+      transition: background-color 0.3s ease;
+    }
+    .navbar-zomato .navbar-brand,
+    .navbar-zomato .nav-link {
+      color: white !important;
+      transition: color 0.3s ease;
+    }
+    .navbar-zomato .nav-link:hover {
+      color: #f8d7da !important;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 1s ease-in-out, transform 8s ease-in-out;
+      animation: heroZoom 8s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.9; }
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      animation: fadeSlideDown 1.5s ease-out;
+    }
+    @keyframes fadeSlideDown {
+      0% { opacity: 0; transform: translate(-50%, -60%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    .hero-overlay .btn {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hero-overlay .btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Counters */
+    .counter {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4f0007;
+      transition: transform 0.3s ease;
+    }
+    .counter-container div:hover .counter {
+      transform: scale(1.2);
+    }
+
+    /* Services Cards */
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Location Box */
+    .location-box .col-auto > div {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .location-box .col-auto > div:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .hero-section { height: 60vh; }
+      h1,h2 { font-size: 22px; }
+      .location-box .col-auto > div { padding: 15px; font-size: 14px; }
+    }
+    /* Navbar initial style */
+.navbar-zomato {
+  background-color: #4f0007;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: -100px; /* hide above screen */
+  z-index: 9999;
+  transition: top 0.8s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: none;
+}
+
+/* Navbar visible after slide */
+.navbar-zomato.show-nav {
+  top: 0;
+}
+
+/* Change background on scroll */
+.navbar-scrolled {
+  background-color: #3a0005 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Navbar link hover */
+.navbar-zomato .nav-link {
+  transition: color 0.4s ease, transform 0.3s ease;
+}
+
+.navbar-zomato .nav-link:hover {
+  color: #f8d7da !important;
+  transform: scale(1.1); /* smooth pop on hover */
+}
+
+/* Hamburger menu animation */
+.navbar-toggler {
+  transition: transform 0.3s ease;
+}
+
+.navbar-toggler.collapsed:hover {
+  transform: rotate(90deg);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-zomato">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Santhosh Variety Rice</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://maps.app.goo.gl/DYATXVRexuJvL9gu6">Location</a></li>
+          <li class="nav-item"><a class="nav-link" href="santhosh_variety_rice_hotel (2).pdf">About</a></li>
+          <li class="nav-item">
+  <a class="nav-link" href="#" onclick="alert('You clicked on about!');">Contact</a>
+</li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="slider-container">
+      <img id="hero-img" src="Flux_Dev_A_vibrant_and_appetizing_still_life_photograph_of_a_s_3.jpg" alt="Hero Image">
+      <div class="hero-overlay text-white">
+        <h1 class="fw-bold" data-aos="fade-down">Welcome to Our Hotel</h1>
+        <a href="https://forms.gle/yc56pCh1zLn5DD4U8" class="btn" style="background-color: #4f0007; color: white;" data-aos="zoom-in">Pre-Order</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About / Counters Section -->
+  <section class="py-5 bg-light" style="position: relative; top: 100px;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+          <img src="Flux_Dev_A_worn_white_Maruti_Omni_van_is_parked_on_a_bustling__2.jpg" alt="10 Years Experience" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <h2 class="fw-bold mb-3 text-danger">10 Year Anniversary</h2>
+          <p style="font-size: 18px; color: #555; line-height: 1.8;">
+            Our Platform Hotel has been serving customers for <strong>over 10 years</strong> with tasty food...
+          </p>
+          <div class="row text-center counter-container">
+            <div class="col-6 col-md-3">
+              <h3 class="counter" data-target="13">0</h3>
+              <p class="small">Variety Rice</p>
+            </div>
+            <div class="col-6 col-md-3">
+              <h3 class="counter" data-target="100000">0</h3>
+              <p class="small">Customers</p>
+            </div>
+            <div class="col-6 col-md-3">
+              <h3 class="counter" data-target="10">0</h3>
+              <p class="small">Years</p>
+            </div>
+            <div class="col-6 col-md-3">
+              <h3 class="counter" data-target="30">0</h3>
+              <p class="small">Price</p>
+            </div>
+          </div>
+          <a href="https://forms.gle/yc56pCh1zLn5DD4U8" class="btn btn-danger mt-4 px-4 py-2" data-aos="fade-up">Know More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Section -->
+  <div class="container-fluid p-0" style="position: relative; top: 150px;">
+    <h1 class="text-center mb-5 fw-bold" style="color: rgb(140, 170, 126);" data-aos="fade-up">Our Service</h1>
+    <div class="row g-0">
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center align-items-center text-white service-card" style="width: 100%; height: 530px; background-color: rgb(140, 170, 126);" data-aos="fade-right">
+          <div class="text-center px-4">
+            <div style="font-size: 70px; color: #f1c40f; margin-bottom: 20px;"><i class="fas fa-utensils"></i></div>
+            <h2 class="fw-bold">CORPORATE ORDERS & PARTIES</h2>
+            <p style="font-size: 18px; color: #ddd; line-height: 1.8;">
+              Our hotel cooks tasty food for all kinds of events...
+            </p>
+            <a href="https://forms.gle/yc56pCh1zLn5DD4U8" class="btn btn-light mt-3">Make a Booking</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center align-items-center text-white text-center px-4 service-card" style="width: 100%; height: 530px; background-color: #444;" data-aos="fade-left">
+          <div>
+            <div style="font-size: 70px; color: #f1c40f; margin-bottom: 20px;"><i class="fa-solid fa-bowl-rice"></i></div>
+            <h2 class="fw-bold">Variety Of Rice</h2>
+            <div style="display: flex; justify-content: center; gap: 40px; text-align: left;">
+              <ul style="font-size: 18px; color: #ddd; list-style-type: disc; margin: 0; padding: 0;">
+                <li>Veg Rice</li><li>Tomato Rice</li><li>Lemon Rice</li><li>Curd Rice</li><li>Mint Rice</li><li>Coriander Rice</li>
+              </ul>
+              <ul style="font-size: 18px; color: #ddd; list-style-type: disc; margin: 0; padding: 0;">
+                <li>Garlic Rice</li><li>Karpuravalli Rice</li><li>Puliyotharai Rice</li><li>Coconut Rice</li><li>Pepper Rice</li><li>Keerai Rice</li>
+              </ul>
+            </div>
+            <a href="https://forms.gle/yc56pCh1zLn5DD4U8" class="btn btn-light mt-3">Explore Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Location Section (same as before, with hover animation) -->
+<!-- Location Section -->
+<div class="location-box py-5" style="background-color: #4f0007;" data-aos="fade-up">
+  <div class="container-fluid p-0 m-0">
+    <div class="row g-0 mb-3">
+      <div class="col">
+        <h2 class="text-center text-white" data-aos="fade-down">Location</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-auto" data-aos="zoom-in" data-aos-delay="200">
+        <div style="width: 100%; max-width: 650px; background-color: white; color: black; 
+                    display: flex; flex-direction: column; justify-content: center; align-items: flex-start; 
+                    border-radius: 12px; padding: 40px 30px; text-align: left; 
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;">
+          
+          <p style="margin: 10px 0; font-size: 16px;">
+            <i class="fas fa-map-marker-alt" style="color: #e23744; margin-right: 10px;"></i>
+            61-A, Anna Salai Rd, Puduppatti Pon, Ponnamaravathi,
+          </p>
+          <p style="margin: 0 0 20px 25px; font-size: 16px;">
+            Ponnamaravathi West, Tamil Nadu 622408
+          </p>
+          <p style="margin: 0 0 20px 25px; font-size: 16px;">
+            Opening Hours: 11:00 AM to 3:00 PM
+          </p>
+
+          <p style="margin: 10px 0; font-size: 16px;">
+            <i class="fas fa-phone-alt" style="color: #28a745; margin-right: 10px;"></i>
+            <strong>Contact:</strong> 9047161914
+          </p>
+
+          <p style="margin: 10px 0 20px 0; font-size: 16px;">
+            <i class="fas fa-envelope" style="color: #007bff; margin-right: 10px;"></i>
+            <strong>Email:</strong> muruganathamuma22@gmail.com
+          </p>
+
+          <div style="text-align: center; width: 100%; margin-top: 10px;">
+            <a href="https://maps.app.goo.gl/DYATXVRexuJvL9gu6" 
+               class="btn px-4 py-2" 
+               style="font-size: 16px; border-radius: 6px; text-decoration: none; background-color: #e23744; color: white;"
+               data-aos="fade-up" data-aos-delay="400">
+               Get Directions
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="py-5" style="background-color: rgb(217, 221, 225); position: relative; top: 500px;" data-aos="fade-up" >
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col"><h5 data-aos="fade-right">Santhosh Variety Rice</h5></div>
+      <div class="col text-end" data-aos="fade-left"><button class="btn btn-light">India</button></div>
+    </div>
+    <div class="row py-5">
+      <div class="col" data-aos="fade-up" data-aos-delay="100">
+        <h5>More Order</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-dark">Veg Rice</a></li>
+          <li><a href="#" class="text-dark">Tomato Rice</a></li>
+          <li><a href="#" class="text-dark">Lemon Rice</a></li>
+          <li><a href="#" class="text-dark">Curd Rice</a></li>
+        </ul>
+      </div>
+      <div class="col" data-aos="fade-up" data-aos-delay="200">
+        <h5>About Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="santhosh_variety_rice_hotel (2).pdf" class="text-dark">About Company</a></li>
+          <li><a href="#" class="text-dark">Feedback</a></li>
+          <li><a href="#" class="text-dark">Rates</a></li>
+        </ul>
+      </div>
+      <div class="col" data-aos="fade-up" data-aos-delay="300">
+        <h5>Social Links</h5>
+        <a href="#" class="text-dark pe-2"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-dark pe-2"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-dark pe-2"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" class="text-dark pe-2"><i class="fab fa-telegram"></i></a>
+      </div>
+      <div class="col" data-aos="fade-up" data-aos-delay="400">
+        <h5>Legal</h5>
+        <ul class="list-unstyled">
+          <li><a href="santhosh_variety_rice_hotel (2).pdf" class="text-dark">Terms & Conditions</a></li>
+          <li><a href="santhosh_variety_rice_hotel (2).pdf" class="text-dark">Customer Care</a></li>
+          <li><a href="santhosh_variety_rice_hotel (2).pdf" class="text-dark">Help & Support</a></li>
+        </ul>
+      </div>
+      <div class="col" data-aos="fade-up" data-aos-delay="500">
+        <h5>Available In</h5>
+        <ul class="list-unstyled">
+          <li><a href="https://maps.app.goo.gl/DYATXVRexuJvL9gu6" class="text-dark">Ponnamaravathy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Initialize AOS
+  AOS.init({
+    duration: 1200,
+    once: true,
+    offset: 100
+  });
+
+  // Hover animation for Location Box
+  const locationBox = document.querySelectorAll('.location-box .col-auto > div');
+  locationBox.forEach(box => {
+    box.addEventListener('mouseover', () => {
+      box.style.transform = 'translateY(-5px)';
+      box.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
+    });
+    box.addEventListener('mouseout', () => {
+      box.style.transform = 'translateY(0)';
+      box.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+    });
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const navbar = document.querySelector(".navbar-zomato");
+
+  // Slide down navbar on page load
+  setTimeout(() => {
+    navbar.classList.add("show-nav");
+  }, 100);
+
+  // Change background on scroll
+  window.addEventListener("scroll", () => {
+    if(window.scrollY > 50) {
+      navbar.classList.add("navbar-scrolled");
+    } else {
+      navbar.classList.remove("navbar-scrolled");
+    }
+  });
+
+  // Optional: smooth fade-in for nav-links
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+  navLinks.forEach((link, index) => {
+    link.style.opacity = 0;
+    link.style.transform = "translateY(-10px)";
+    setTimeout(() => {
+      link.style.transition = "all 0.5s ease";
+      link.style.opacity = 1;
+      link.style.transform = "translateY(0)";
+    }, 200 + index * 150); // stagger animation
+  });
+});
+</script>
+
+  <!-- Footer (same as before) -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+
+    // Hero Image Slider
+    const heroImages = [
+      "Flux_Dev_A_vibrant_and_appetizing_still_life_photograph_of_a_s_3.jpg",
+      "CURD-RICE.avif",
+      "Flux_Dev_A_vibrant_and_appetizing_still_life_of_a_steaming_hot_3.jpeg",
+      "Flux_Dev_A_vibrant_and_appetizing_image_of_a_plate_of_tomato_r_1.jpg",
+      "Flux_Dev_a_vibrant_and_colorful_illustration_of_a_natural_hote_1.jpg"
+    ];
+    let current = 0;
+    const heroImg = document.getElementById("hero-img");
+    function changeHeroImage() {
+      heroImg.style.opacity = 0;
+      setTimeout(() => {
+        heroImg.src = heroImages[current];
+        heroImg.style.opacity = 1;
+        current = (current + 1) % heroImages.length;
+      }, 500);
+    }
+    setInterval(changeHeroImage, 3000);
+
+    // Counter Animation
+    const counters = document.querySelectorAll(".counter");
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+        const increment = target / 200;
+        if(count < target){
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 15);
+        } else {
+          counter.innerText = target.toLocaleString();
+        }
+      }
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            updateCount();
+            observer.unobserve(counter);
+          }
+        });
+      }, { threshold: 1 });
+      observer.observe(counter);
+    });
+  </script>
+</body>
+</html>

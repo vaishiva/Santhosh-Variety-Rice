@@ -1,0 +1,121 @@
+/* ---------------- Navbar ---------------- */
+.navbar-zomato {
+  background-color: #4f0007 !important;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-zomato .navbar-brand,
+.navbar-zomato .nav-link {
+  color: white !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-zomato .nav-link:hover {
+  color: #f8d7da !important;
+}
+
+.collapse ul li {
+  padding-right: 20px;
+}
+
+/* ---------------- Hero Section ---------------- */
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 1s ease-in-out, transform 8s ease-in-out;
+  animation: heroZoom 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+/* Hero overlay text */
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  animation: fadeSlideDown 1.5s ease-out;
+}
+
+@keyframes fadeSlideDown {
+  0% { opacity: 0; transform: translate(-50%, -60%); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* ---------------- Location Box ---------------- */
+.location-box {
+  width: 100%;
+  position: relative;
+  top: 400px;
+  background-color: #4f0007;
+  padding: 30px 15px;
+  transition: top 0.3s ease;
+}
+
+.location-box .col-auto > div {
+  width: 100%;
+  max-width: 650px;
+  border-radius: 12px;
+  padding: 30px;
+  background-color: white;
+  color: black;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-box .col-auto > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.location-box button a {
+  color: white;
+  text-decoration: none;
+}
+
+/* ---------------- Responsive Media Queries ---------------- */
+@media (max-width: 992px) {
+  .hero-section { height: 70vh; }
+  .location-box { top: 200px; }
+}
+
+@media (max-width: 768px) {
+  .hero-section { height: 60vh; }
+  .location-box { top: 150px; }
+  .location-box .col-auto > div { padding: 20px; }
+}
+
+@media (max-width: 576px) {
+  .hero-section { height: 50vh; }
+  h1, h2 { font-size: 22px; }
+  .location-box { top: 350px; padding: 15px; }
+  .location-box .col-auto > div { padding: 15px; font-size: 14px; }
+}
